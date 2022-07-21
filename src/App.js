@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+
+import { useContext, useEffect } from 'react';
 import './App.css';
+import context from './Context/Creation';
+
 
 function App() {
+
+  const a = useContext(context);
+  useEffect(()=> {
+    a.update();
+  }, [])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <p>hello i am {a.state.name}</p>
     </div>
   );
+
+  return (
+    <div className="App">
+      <p>hello i am {a.name}</p>
+    </div>
+  );
+
+
 }
 
 export default App;
